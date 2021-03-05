@@ -1,10 +1,21 @@
+.myChart {
+	font-size: 30px;
+}
+.infoBtn {
+	visibility: hidden;
+}
+
 .button {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 250px;
 }
 .btn {
 	padding: 5px;
 	margin: 5px;
+}
+
+[data-use="true"] {
+	background-color: black;
+	color: white;
 }

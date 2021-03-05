@@ -9,11 +9,18 @@
 	</head>
 	<body>
 		<canvas class="myChart"></canvas>
+		<div class="button infoBtn">
+			<button class="info" id="confirmed" data-use="true">Confirmed</button>
+			<button class="info" id="deaths">Deaths</button>
+			<button class="info" id="recovered">Recovered</button>
+			<button class="info" id="critical">Critical</button>
+		</div>
 		<div class="button">
 			<button class="continent" id="africa">Africa</button>
 			<button class="continent" id="asia">Asia</button>
 			<button class="continent" id="europe" data-use>Europe</button>
 			<button class="continent" id="americas" data-use>America</button>
+			<button class="continent" id="oceania" data-use>Oceania</button>
 		</div>
 
 		<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
