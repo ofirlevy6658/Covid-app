@@ -42,17 +42,21 @@ async function getData() {
 	// console.log(africa);
 }
 
-const btn = document.querySelector(".button");
-btn.addEventListener("click", CreateGraph);
+const continentBtns = document.querySelectorAll(".continent");
+continentBtns.forEach((b) => b.addEventListener("click", CreateGraph));
+//
 async function CreateGraph(e) {
+	document.querySelector(".myChart").remove();
+	const chartElement = document.createElement("canvas");
+	chartElement.classList.add("myChart");
+	document.body.prepend(chartElement);
 	const button = e.target;
-	document
-		.querySelectorAll(".continent")
-		.forEach((btn) => btn.setAttribute("data-use", "false")); //we remove the use from all btns
+	continentBtns.forEach((btn) => btn.setAttribute("data-use", "false")); //we remove the use from all btns
 	button.setAttribute("data-use", "true"); // we set the dseire btn attribute in use
-	let ctx = document.querySelector("#myChart").getContext("2d");
+	let ctx = document.querySelector(".myChart").getContext("2d");
 	let graph = updateGraph(button.id);
 	let chart = new Chart(ctx, graph);
+	chart.update(graph);
 }
 
 function updateGraph(graphLabel) {
@@ -78,7 +82,9 @@ function updateGraph(graphLabel) {
 			],
 		},
 	};
-	graph.data.datasets[0].label = `${graphLabel.charAt(0).toUpperCase()}`;
+	graph.data.datasets[0].label = `${
+		graphLabel.charAt(0).toUpperCase() + graphLabel.slice(1)
+	}`;
 	graph.data.labels.push(...labels);
 	graph.data.datasets[0].data.push(...data);
 	return graph;
