@@ -1,7 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
-
-body {
+* {
 	font-family: "Roboto", sans-serif;
+}
+body {
 	background-color: #f4f4f4ad;
 	color: rgb(77, 77, 226);
 }
@@ -13,6 +14,10 @@ button {
 	padding: 5px 8px;
 	background-color: transparent;
 	cursor: pointer;
+	margin: 5px;
+}
+.canvas-div {
+	height: 70vh;
 }
 .myChart {
 	font-size: 30px;
@@ -29,6 +34,18 @@ button {
 
 [data-use="true"] {
 	transition: all 0.4s;
-	background-color: black;
+	background-color: #4e71ba;
 	color: white;
+	border: solid 3px black;
+}
+
+/* @media only screen and (max-width: 800px) {
+	.canvas-div {
+		height: 66vh;
+	}
+} */
+@media only screen and (max-height: 450px) {
+	.canvas-div {
+		height: 57vh;
+	}
 }
