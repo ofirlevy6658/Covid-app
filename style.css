@@ -16,8 +16,17 @@ button {
 	cursor: pointer;
 	margin: 5px;
 }
+span {
+	color: black;
+	font-size: 15px;
+	line-height: 25px;
+	margin-right: 15px;
+	cursor: pointer;
+	display: inline-block;
+}
+
 .canvas-div {
-	height: 70vh;
+	height: 65vh;
 }
 .myChart {
 	font-size: 30px;
@@ -44,8 +53,16 @@ button {
 		height: 66vh;
 	}
 } */
-@media only screen and (max-height: 450px) {
+@media only screen and (max-height: 800px) {
+	span {
+		display: none;
+	}
 	.canvas-div {
 		height: 57vh;
 	}
+}
+
+.countryCard {
+	text-align: center;
+	color: black;
 }
