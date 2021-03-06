@@ -2,12 +2,16 @@
 // `https://api.codetabs.com/v1/proxy?quest=https://restcountries.herokuapp.com/api/v1`
 
 async function getCovid() {
-	const resposne = await fetch(`http://corona-api.com/countries`);
+	const resposne = await fetch(
+		`https://api.codetabs.com/v1/proxy?quest=http://corona-api.com/countries`
+	);
 	return resposne.json();
 }
 
 async function getCountry() {
-	const resposne = await fetch(`https://restcountries.herokuapp.com/api/v1`);
+	const resposne = await fetch(
+		`https://api.codetabs.com/v1/proxy?quest=https://restcountries.herokuapp.com/api/v1`
+	);
 	return resposne.json();
 }
 
