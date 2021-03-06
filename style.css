@@ -1,3 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
+
+body {
+	font-family: "Roboto", sans-serif;
+	background-color: #f4f4f4ad;
+	color: rgb(77, 77, 226);
+}
+
+h1 {
+	text-align: center;
+}
+button {
+	padding: 5px 8px;
+	background-color: transparent;
+	cursor: pointer;
+}
 .myChart {
 	font-size: 30px;
 }
@@ -10,12 +26,9 @@
 	justify-content: center;
 	align-items: center;
 }
-.btn {
-	padding: 5px;
-	margin: 5px;
-}
 
 [data-use="true"] {
+	transition: all 0.4s;
 	background-color: black;
 	color: white;
 }

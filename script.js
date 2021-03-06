@@ -1,19 +1,13 @@
-//https://api.codetabs.com/v1/proxy?quest=https://restcountries.herokuapp.com/api/v1
-// async function getContinent(continent) {
-// 	const resposne = await fetch(
-// 		`https://cors-anywhere.herokuapp.com/https://restcountries.herokuapp.com/api/v1/region/${continent}`
+// `https://api.codetabs.com/v1/proxy?quest=http://corona-api.com/countries`
+// `https://api.codetabs.com/v1/proxy?quest=https://restcountries.herokuapp.com/api/v1`
 
 async function getCovid() {
-	const resposne = await fetch(
-		`https://api.codetabs.com/v1/proxy?quest=http://corona-api.com/countries`
-	);
+	const resposne = await fetch(`http://corona-api.com/countries`);
 	return resposne.json();
 }
 
 async function getCountry() {
-	const resposne = await fetch(
-		`https://api.codetabs.com/v1/proxy?quest=https://restcountries.herokuapp.com/api/v1`
-	);
+	const resposne = await fetch(`https://restcountries.herokuapp.com/api/v1`);
 	return resposne.json();
 }
 
@@ -54,8 +48,9 @@ async function displayGraph() {
 	document.querySelector(".myChart").remove();
 	const chartElement = document.createElement("canvas");
 	chartElement.classList.add("myChart");
-	document.body.prepend(chartElement);
+	document.querySelector(".canvas-div").appendChild(chartElement);
 	let ctx = document.querySelector(".myChart").getContext("2d");
+	ctx.height = 100;
 	let graph = createGraph();
 	let chart = new Chart(ctx, graph);
 }
@@ -71,7 +66,7 @@ function infoBottonState(e) {
 	displayGraph();
 }
 
-function updateGraph2(graphLabel, dataType) {
+function updateGraph(graphLabel, dataType) {
 	const labels = [];
 	const data = [];
 	worldData.forEach((country) => {
@@ -88,8 +83,8 @@ function createGraph() {
 	const dataType = state[0].id;
 	const graphLabel = state[1].id;
 	const graphColor = graphColors(dataType);
-	console.log(graphColor);
-	const graphData = updateGraph2(graphLabel, dataType);
+
+	const graphData = updateGraph(graphLabel, dataType);
 	const graph = {
 		type: "line",
 		data: {
@@ -103,6 +98,10 @@ function createGraph() {
 				},
 			],
 		},
+		options: {
+			responsive: true,
+			maintainAspectRatio: false,
+		},
 	};
 
 	graph.data.datasets[0].label = `${
@@ -114,7 +113,6 @@ function createGraph() {
 }
 
 function graphColors(dataType) {
-	console.log(dataType);
 	switch (dataType) {
 		case "confirmed":
 			return ["#ffa64c", "#ff8000"];
